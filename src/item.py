@@ -20,6 +20,14 @@ class Item:
         self.__name = name
         Item.all.append(self)
 
+    def __repr__(self) -> str:
+        """ Информация об экземпляре класса"""
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
+
+    def __str__(self) -> str:
+        """ Информация о названии товара"""
+        return f"{self.name}"
+
     @property
     def name(self) -> str:
         """
