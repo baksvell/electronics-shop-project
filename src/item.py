@@ -28,6 +28,10 @@ class Item:
         """ Информация о названии товара"""
         return f"{self.name}"
 
+    def __add__(self, other):
+        if self.__class__.__name__ in ('Item', 'Phone') and other.__class__.__name__ in ('Item', 'Phone'):
+            return self.quantity + other.quantity
+
     @property
     def name(self) -> str:
         """

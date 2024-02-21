@@ -1,5 +1,20 @@
 from src.item import Item
 
+item1 = Item("Смартфон", 10000, 20)
+item2 = Item("Ноутбук", 20000, 5)
+item3 = Item("Наушники", 5000, 30)
+
+phone1 = Phone("iPhone 14", 120_000, 5, 2)
+
+def test_item_init():
+    assert item1.name == "Смартфон"
+    assert item1.price == 10_000
+    assert item1.quantity == 20
+    assert item2.name == "Ноутбук"
+    assert item2.price == 20_000
+    assert item2.quantity == 5
+    assert len(Item.all) == 4
+
 
 def test_calculate_total_price():
     item = Item("TestItem", 400, 5)
@@ -46,3 +61,9 @@ def test_repr():
 def test_str():
     item2 = Item("Велосипед", 100000, 200)
     assert str(item2) == 'Велосипед'
+
+def test__add__():
+    assert item1 + item2 == 25
+    assert item1 + 15 is None
+    assert item1 + phone1 == 25
+    assert phone1 + item1 == 25
